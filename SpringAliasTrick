@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">    
+    
+<beans>
+    
+    <bean id="triangle" class="in.blogspot.codewithnikhil.beans.Triangle">
+        <property name="triType" value="Equilateral Triangle"></property>
+        <property name="pointA" ref="pointA"></property>
+    </bean>
+    
+    <alias name="triangle" alias="nikhil-triangle"></alias>
+    
+    <bean id="nikhil-triangle" class="in.blogspot.codewithnikhil.beans.Triangle">
+        
+        <property name="triType" value="Nikhil"></property>
+    </bean>
+            
+    <bean id="pointA" class="in.blogspot.codewithnikhil.beans.Point">
+        <property name="x" value="3"></property>
+        <property name="y" value="4"></property>
+    </bean>
+        
+</beans>
+
+
+---x-------------x---------------x-------------x---------------x------------x---------------x------------------x----------
+
+
+
+package in.blogspot.codewithnikhil.beans;
+
+import java.net.URL;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class DrawingApp
+{
+    public static void main(String[] args)
+    {
+        URL resource = DrawingApp.class.getResource("..");
+        ApplicationContext context = new ClassPathXmlApplicationContext(resource+"resources/spring.xml");
+        
+        Triangle alias_triangle = (Triangle) context.getBean("nikhil-triangle");
+        System.out.println(alias_triangle);
+        
+        Triangle t = (Triangle) context.getBean("triangle");
+        System.out.println(t);
+        System.out.println(alias_triangle==t);
+    }
+}
+
+---x-------------x---------------x-------------x---------------x------------x---------------x------------------x----------
+
+package in.blogspot.codewithnikhil.beans;
+
+public class Triangle
+{
+
+    private String triType;
+    private Point pointA;
+  
+    public void setTriType(String triType)
+    {
+        this.triType = triType;
+    }
+
+    public void setPointA(Point pointA)
+    {
+        this.pointA = pointA;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Triangle{" + "triType=" + triType + ", pointA=" + pointA ;
+    }
+}
+
+
+---x-------------x---------------x-------------x---------------x------------x---------------x------------------x----------
+
+package in.blogspot.codewithnikhil.beans;
+
+public class Point
+{
+    private int x;
+    private int y;
+    
+    public int getX()
+    {
+        return x;
+    }
+
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    public void setY(int y)
+    {
+        this.y = y;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Point{" + "x=" + x + ", y=" + y + '}';
+    }
+}
