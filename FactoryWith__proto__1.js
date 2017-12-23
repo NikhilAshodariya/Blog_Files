@@ -16,16 +16,11 @@ function statement() {
   console.log(`balance = ${this.balance}`);
 }
 
-var baseFunction = {
-  deposit: deposit,
-  withdraw: withdraw,
-  statement: statement
-}
-
 function getBankAccount() {
   var obj = {
     balance: 0,
   };
+  // obj.__proto__ = baseFunction;
   obj.__proto__.deposit = deposit;
   obj.__proto__.withdraw = withdraw;
   obj.__proto__.statement = statement;
