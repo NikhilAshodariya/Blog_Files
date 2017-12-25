@@ -16,12 +16,6 @@ function statement() {
   console.log(`balance = ${this.balance}`);
 }
 
-var baseFunction = {
-  deposit:deposit,
-  withdraw:withdraw,
-  statement:statement
-};
-
 function getBankAccount() {
   this.balance = 0;
 }
