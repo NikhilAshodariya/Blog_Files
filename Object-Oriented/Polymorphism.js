@@ -53,3 +53,29 @@ console.log("printing Obj2");
 obj2.printData();
 execute(obj1);
 execute(obj2);
+
+
+/*
+Output:-
+calling class A Constructor
+calling class A Constructor
+calling class B Constructor
+printing Obj1
+p = 1
+q = 2
+printing Obj2
+p = 323
+q = 121
+r = 3
+s = 4
+--------------Start------------
+this is a check method of class A
+is instance of class A ==== true
+is instance of class B ==== false
+-------------End---------------
+--------------Start------------
+This is a check method of class B
+is instance of class A ==== true
+is instance of class B ==== true
+-------------End---------------
+*/
