@@ -9,7 +9,7 @@ function statement(){
   console.log("This is statement");
 }
 
-function piggyBank(){
+function NikhilBank(){
   var obj = {
     balance:0,
     deposit:deposit,
@@ -18,5 +18,5 @@ function piggyBank(){
   };
   return obj;
 }
-var g = piggyBank();
+var g = NikhilBank();
 g.deposit();
