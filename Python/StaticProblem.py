@@ -9,6 +9,7 @@ class classA:
         return (a, b)
 
     def newSwap(c, d):
+        print("static executed")
         temp = c
         c = d
         d = temp
